@@ -7,6 +7,12 @@
 <p align="center">Turn photos, GIFs, videos — or a link from X — into WhatsApp stickers.</p>
 
 <p align="center">
+  <a href="https://github.com/SergioJuniorCE/yogganstick/actions/workflows/android-apk.yml">
+    <img src="https://github.com/SergioJuniorCE/yogganstick/actions/workflows/android-apk.yml/badge.svg" alt="Android APK">
+  </a>
+</p>
+
+<p align="center">
   <img src="assets/screenshots/home.png" width="24%" alt="Sticker packs">
   <img src="assets/screenshots/pack.png" width="24%" alt="Sticker pack">
   <img src="assets/screenshots/detail.png" width="24%" alt="Sticker preview">
