@@ -155,5 +155,3 @@ app/src/main/java/com/yogganstick/
 - WhatsApp must be installed to add a pack; the in-app editor works without it.
 - Pack files and preferences are excluded from Android backup and device transfer.
 - Not affiliated with WhatsApp. Stickers you make are yours to use.
-
-Created in [T3 Code](https://t3.codes).
