@@ -1,4 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#db2777"/>
-  <text x="32" y="32" dy="0.35em" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="32" font-weight="600" fill="#ffffff">Y</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F472B6"/>
+      <stop offset="1" stop-color="#BE185D"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <g transform="rotate(-8 256 256)">
+    <rect x="142" y="142" width="228" height="228" rx="66" fill="#FFFFFF"/>
+    <circle cx="208" cy="230" r="17" fill="#DB2777"/>
+    <circle cx="304" cy="230" r="17" fill="#DB2777"/>
+    <path d="M200 282 Q256 330 312 282" fill="none" stroke="#DB2777" stroke-width="20" stroke-linecap="round"/>
+  </g>
 </svg>
