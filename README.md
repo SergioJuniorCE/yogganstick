@@ -73,7 +73,8 @@ The app supports Android 9 (API 28) and newer.
 The GitHub Actions workflow at `.github/workflows/android-apk.yml` follows the same
 nightly pattern used by Yogganga:
 
-- runs daily at **03:00 UTC**, and on manual **workflow_dispatch**;
+- runs daily at **03:00 UTC**, on pushes to `main`, and on manual
+  **workflow_dispatch**;
 - skips the build when the default branch has not moved since the last `nightly`
   release, unless it was started manually;
 - stamps `versionCode` with the workflow run number and `versionName` with
