@@ -116,6 +116,8 @@ private fun AppRoot(viewModel: AppViewModel) {
                         onRenamePack = { name -> viewModel.renamePack(pack.id, name) },
                         onDeletePack = { viewModel.deletePack(pack.id) },
                         onMessage = viewModel::notify,
+                        whatsAppSync = viewModel.whatsAppSync,
+                        onWhatsAppSyncHandled = viewModel::consumeWhatsAppSync,
                     )
                 } else {
                     LaunchedEffect(current.packId) { viewModel.openPacks() }
