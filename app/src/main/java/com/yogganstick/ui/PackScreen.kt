@@ -96,6 +96,8 @@ fun PackScreen(
     onRenamePack: (String) -> Unit,
     onDeletePack: () -> Unit,
     onMessage: (String) -> Unit,
+    whatsAppSync: String?,
+    onWhatsAppSyncHandled: () -> Unit,
 ) {
     val context = LocalContext.current
     var showAddDialog by rememberSaveable { mutableStateOf(false) }
@@ -152,6 +154,13 @@ fun PackScreen(
             addPackLauncher.launch(Intent.createChooser(intent, "Add to WhatsApp"))
         }.onFailure {
             onMessage("Couldn't open WhatsApp.")
+        }
+    }
+
+    LaunchedEffect(whatsAppSync) {
+        if (whatsAppSync == pack.id) {
+            addToWhatsApp()
+            onWhatsAppSyncHandled()
         }
     }
 

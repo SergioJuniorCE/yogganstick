@@ -73,6 +73,8 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
         private set
     var linkDialog by mutableStateOf<LinkDialogState?>(null)
         private set
+    var whatsAppSync by mutableStateOf<String?>(null)
+        private set
 
     private var previewJob: Job? = null
     private var linkJob: Job? = null
@@ -151,8 +153,17 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
     fun deleteSticker(packId: String, fileName: String) {
         viewModelScope.launch {
             attempt { store.deleteSticker(packId, fileName) }
+                .onSuccess {
+                    if (store.packs.value.firstOrNull { it.id == packId }?.stickers?.isNotEmpty() == true) {
+                        whatsAppSync = packId
+                    }
+                }
                 .onFailure { showMessage(it.message ?: "Couldn't remove that sticker.") }
         }
+    }
+
+    fun consumeWhatsAppSync() {
+        whatsAppSync = null
     }
 
     fun importPickedMedia(packId: String, uri: Uri) {
@@ -346,6 +357,7 @@ class AppViewModel(application: Application) : AndroidViewModel(application) {
                     editor = editor?.copy(isSaving = false)
                     closeEditor()
                     showMessage("Sticker added")
+                    whatsAppSync = current.packId
                 }.onFailure { throwable ->
                     editor = editor?.copy(
                         isSaving = false,
